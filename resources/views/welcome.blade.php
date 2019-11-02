@@ -79,20 +79,12 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+             <div class="content">
+                <div class="title">
+                    Welcome 
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div class="text-center Welcome"><img src="{{asset('images/bitchest_logo.png')}}" alt="Bitchest" class="img-responsive"></div>
+                <p>Please login to access your personal space</p>
             </div>
         </div>
     </body>

@@ -14,3 +14,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| page index du SuperAdmin
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/SuperAdmin', function () {
+    return view('SuperAdmin.index');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| page index du AdminUsers
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/AdminUsers', function () {
+    return view('AdminUsers.index');
+});
