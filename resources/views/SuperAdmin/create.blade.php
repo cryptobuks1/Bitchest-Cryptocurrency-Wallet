@@ -6,8 +6,14 @@
 <div class="main_content">
         <div class="header">Liste des clients de Bitchest.</div> 
 
-        <div class="info">
-        <form action ="/SuperAdmin" method="POST">
+<div class="info">
+  @if(session()->has('creer'))
+       <article class="alert alert-dismissible alert-warning">
+       <p class="mb-0">{!! session()->get('creer')  !!}</p>
+       </article>
+  @endif
+
+<form action ="/SuperAdmin" method="POST">
 @csrf
   <fieldset>
     <legend>Creation d'un Clients</legend>

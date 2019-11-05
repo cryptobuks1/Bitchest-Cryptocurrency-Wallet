@@ -14,8 +14,8 @@
        <p class="mb-0">{!! session()->get('supprimer')  !!}</p>
        </article>
        @endif
-       
-        <a href="{{ route('SuperAdmin.create')}}"><button type="button" class="btn btn-primary btn-sm my-3">Creer un nouveau Client</button></a>
+
+        <a href="{{ route('SuperAdmin.create')}}"><button type="button" class="btn btn-success my-3">Creer un nouveau Client</button></a>
         <table class="table table-hover">
         <thead>
           <tr>
@@ -38,7 +38,7 @@
             <td><form class="form_action" action="/SuperAdmin/{{$user->id}}" method="POST">
               @csrf
               @method('DELETE')
-             <button type="submit" class="btn btn-danger btn-sm my-3"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
+             <button type="submit" onclick="return confirm('Etes vous sure de vouloir supprimer ce client ');" class="btn btn-danger btn-sm my-3"><i class="fa fa-trash-o" aria-hidden="true"></i><a  href=""></a> Supprimer</button>
              </form>
 
            </td>
