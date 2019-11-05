@@ -3,10 +3,52 @@
 
 @section('content')
 
+
+
 <div class="main_content">
-        <div class="header">Bienvenue Monsieur Diagne vous vous etez connecter en tant que administrateur.</div>  
-        <div class="info">
+        <div class="header">Liste des clients de Bitchest.</div> 
         
+        <div class="info">
+        @if(session()->has('supprimer'))
+       <article class="alert alert-dismissible alert-warning">
+       <p class="mb-0">{!! session()->get('supprimer')  !!}</p>
+       </article>
+       @endif
+       
+        <a href="{{ route('SuperAdmin.create')}}"><button type="button" class="btn btn-primary btn-sm my-3">Creer un nouveau Client</button></a>
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Status</th>
+            <th scope="col">Infos Utilisateur</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($users as $user)
+          <tr class="table-success col-md-8">
+            <td>{{$user->name}}</td>
+            <td>{{$user->status}}</td>
+            <td><a href="/SuperAdmin/{{$user->id}}"><button type="button" class="btn btn-success btn-sm "><i class="fa fa-low-vision" aria-hidden="true"></i>
+            Informatins</button></a></td>
+            <td><a href="/SuperAdmin/{{$user->id}}/edit"><button type="button" class="btn btn-warning btn-sm "><i class="fa fa-upload" aria-hidden="true"></i>
+            Modifier</button></a></td>
+            <td><form class="form_action" action="/SuperAdmin/{{$user->id}}" method="POST">
+              @csrf
+              @method('DELETE')
+             <button type="submit" class="btn btn-danger btn-sm my-3"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
+             </form>
+
+           </td>
+          </tr>
+          
+          @endforeach
+        </tbody>
+
+      </table> 
+      {{ $users->links() }}
       </div>
     </div>
 

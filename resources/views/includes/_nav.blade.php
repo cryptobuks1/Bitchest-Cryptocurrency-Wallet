@@ -5,7 +5,7 @@
         
         <ul>
             <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
-            <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i> Nos Clients</a></li>
+            <li><a href="{{ route('SuperAdmin.index')}}"><i class="fa fa-users" aria-hidden="true"></i> Nos Clients</a></li>
             <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>
              Crypto Monnaies</a></li>
             <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>

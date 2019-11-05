@@ -10,13 +10,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $attributes =[
+        'status'=> 0
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','status'
     ];
 
     /**
@@ -36,4 +40,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     // creation de la fonction get pour gérer les status
+
+    public function getstatusAttribute($attributes){
+
+        return $this->getstatusOption()[$attributes];
+    }
+
+    // creation d'un option 
+
+    public function getstatusOption(){
+
+        return [
+            '0' =>'Inactif',
+            '1'=>'Actif',
+            '2' => 'en attent de validation'
+        ];
+    }
 }
