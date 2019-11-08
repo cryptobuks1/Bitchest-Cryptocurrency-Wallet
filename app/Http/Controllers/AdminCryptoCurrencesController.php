@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CryptoCurrency;
 use App\CryptoHistory;
-use Illuminate\Support\Facades\Auth;
 use DB;
 
 
@@ -14,7 +13,7 @@ class AdminCryptoCurrencesController extends Controller
 
 /* jointure entre les deux tables Cryptocurrences et Cryptohistories */
 
-public function cryptomannaie(){
+public function monnaie(){
 
     $title = 'Cours des crypto monnaies';
     $cryptocurrency = Cryptocurrency::all();

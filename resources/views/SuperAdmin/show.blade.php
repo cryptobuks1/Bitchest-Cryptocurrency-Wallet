@@ -16,7 +16,7 @@
         <h4>Nom : {{$user->name}}</h4>
         <p class="lead">Email : {{$user->email}}</p>
         <hr class="my-4">
-        <p>Status : {{$user->status}}</p>
+        <p>Status : {{$user->status ? 'actif' : 'inactif'}}</p>
         <p class="lead">
          <a href="{{ route('SuperAdmin.index')}}"><button type="button" class="btn btn-success"><i class="fa fa-angle-double-left" aria-hidden="true"></i>
          Back</button></a>

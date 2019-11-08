@@ -1,79 +1,45 @@
 <?php
+/* Route pour la page racine de mon site web */
+Route::view('/','welcome');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* ################## Partie Super Administrateur ######################## */
 
+/* Route pour le Crud page super Administrateur */
 
-/*
-|-----------------------------------------------------------------------
-| Route pour gérer l'affichage des cryptomannaie et leurs cours
-|-----------------------------------------------------------------------
-*/
-
-Route::get('/SuperAdmin/crypto_monnaie','AdminCryptoCurrencesController@cryptomannaie');
-
-########################################################################
-
-/*
-|-----------------------------------------------------------------------
-| Route pour gérer tous les utilisateurs dans la page superAdmin
-|-----------------------------------------------------------------------
-*/
-
-Route::get('/SuperAdmin','SuperAdminController@index')->name('SuperAdmin.index');
-/*
-|-----------------------------------------------------------------------
-| Presenter un formulaire pour pouvoir creer des clients
-|-----------------------------------------------------------------------
-*/
-
-Route::get('/SuperAdmin/create','SuperAdminController@create')->name('SuperAdmin.create');
-
-/*
-|-----------------------------------------------------------------------
-| Stocker des clients dans la base de donnees via la fonction store
-|-----------------------------------------------------------------------
-*/
-Route::post('/SuperAdmin','SuperAdminController@store')->name('SuperAdmin.store');
-
-/*
-|-----------------------------------------------------------------------
-| Route pour gérer l'affichage des informations d'un utilisateur
-|-----------------------------------------------------------------------
-*/
-Route::get('/SuperAdmin/{user}','SuperAdminController@show')->name('SuperAdmin.show');
-
-/*
-|-----------------------------------------------------------------------
-|editer son profil via la fonction edit
-|-----------------------------------------------------------------------
-*/
-Route::get('/SuperAdmin/{user}/edit','SuperAdminController@edit')->name('SuperAdmin.edit');
-
-/*
-|-----------------------------------------------------------------------
-|udate son profil via la fonction edit
-|-----------------------------------------------------------------------
-*/
-Route::PATCH('/SuperAdmin/{user}','SuperAdminController@update')->name('SuperAdmin.update');
-/*
-|-----------------------------------------------------------------------
-|delete client
-|-----------------------------------------------------------------------
-*/
-Route::delete('/SuperAdmin/{user}','SuperAdminController@destroy')->name('SuperAdmin.destroy');
+Route::resource('SuperAdmin', 'SuperAdminController')->middleware('auth');;
 
 
-########################################################################
+
+/* Route pour gérer l'affichage des cryptomannaie et leurs cours */
+Route::get('SuperAdmin.crypto_monnaie','AdminCryptoCurrencesController@monnaie');
 
 
-/*
-|-----------------------------------------------------------------------
-| Cote Utilisateur Simple
-|-----------------------------------------------------------------------
-*/
 
-Route::get('/AdminUsers', function () {
-    return view('AdminUsers.index');
-});
+
+
+
+
+
+/* ###################### Partie Utilisateurateur ########################## */
+
+Route::get('/AdminUsers','UtilisateurController@list')->name('el')->middleware('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ###################### Partie Authentification ########################## */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/login.custom','LoginController@index')->name('login.custom');

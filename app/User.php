@@ -14,6 +14,8 @@ class User extends Authenticatable
         'status'=> 0
     ];
 
+   
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +24,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','status'
     ];
+
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,19 +47,24 @@ class User extends Authenticatable
 
      // creation de la fonction get pour gérer les status
 
-    public function getstatusAttribute($attributes){
+   
+ public function is_admin(){
 
-        return $this->getstatusOption()[$attributes];
+        if($this->status == 1){
+
+            return true;
+        }
+        
+        else{
+
+             return false;
+        }
+
     }
 
-    // creation d'un option 
 
-    public function getstatusOption(){
 
-        return [
-            '0' =>'Inactif',
-            '1'=>'Actif',
-            '2' => 'en attent de validation'
-        ];
-    }
+    
+    
+    
 }

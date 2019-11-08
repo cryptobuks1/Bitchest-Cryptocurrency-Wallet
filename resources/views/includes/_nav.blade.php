@@ -4,12 +4,25 @@
         <a class="navbar-brand" href="#"><img src="{{asset('images/bitchest_logo.png')}}" alt="Bitchest"  class="img-responsive" width= "150";></a>
         
         <ul>
-            <li><a href="/SuperAdmin/{{$user->id}}/edit"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
-            <li><a href="{{ route('SuperAdmin.index')}}"><i class="fa fa-users" aria-hidden="true"></i> Nos Clients</a></li>
-            <li><a href="/SuperAdmin/crypto_monnaie"><i class="fa fa-money" aria-hidden="true"></i>
+            <li><a href=""><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
+
+            <li><a href="{{ route ('SuperAdmin.index')}}"><i class="fa fa-users" aria-hidden="true"></i> Nos Clients</a></li>
+
+            <li><a href="SuperAdmin.crypto_monnaie"><i class="fa fa-money" aria-hidden="true"></i>
              Crypto Monnaies</a></li>
-            <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>
-           Se Deconnecter</a></li>
+
+            <li >
+              <a class="" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"><i class="fa fa-trash" aria-hidden="true"></i>
+                 {{ __('Se Deconnecter') }}
+
+              </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+           </li>
           
         </ul>
 

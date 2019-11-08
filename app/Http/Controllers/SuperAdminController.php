@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class SuperAdminController extends Controller
@@ -15,6 +17,8 @@ class SuperAdminController extends Controller
 public function index(){
 
     $users = User::paginate(3);
+   
+
     return view('SuperAdmin.index', compact('users'));
 }
 
@@ -29,35 +33,50 @@ public function create(){
 
 public function store(Request $request){
 
-        $data = request()->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|',
-            'status'=>'required|integer'
+      $this->validate($request, [
+        'name'=>'required',
+        'email'=>'required|email|',
+        'password'=>'required',
+        'status'=>'required|integer'
         ]);
 
-        User::create($data);
+       $users = new User;
 
-         session()->flash('creer','Utilisateur creer avec success');
+       $users->name = $request->input('name');
+       $users->email = $request->input('email');
+       $users->password = Hash::make($request->input('password'));
+       $users->status = $request->input('status');
+
+       session()->flash('creer','Utilisateur creer avec success');
+
+       $users->save();
 
         return back();
     }
 
 /* Infos utilisateurs de Bitchest */
 
-public function show(User $user){
-    return view('SuperAdmin.show', compact('user'));
+public function show($id){
+
+    $user =User::find($id);
+
+    return view('SuperAdmin.show',compact('user'));
 }
 
 /* fonction pour editer un client */
 
-public function edit(User $user){
+public function edit($id){
+
+        $user =User::find($id);
+
         return view('SuperAdmin.edit',compact('user'));
     }
 
 /* fonction pour modifier un utilisateur */
 
-public function update(User $user){
+public function update(Request $request, $id){
+
+        $user =User::find($id);
 
         $data =request()->validate([
 
@@ -73,7 +92,9 @@ public function update(User $user){
     }
 
 /* fonction pour supprimer un client */
-    public function destroy(User $user){
+
+    public function destroy($id){
+        $user =User::find($id);
         $user->delete();
         session()->flash('supprimer','Utilisateur supprimer avec success');
         return redirect('/SuperAdmin');

@@ -49,9 +49,10 @@
     <div class="form-group">
       <label for="status">status</label>
       <select class="form-control  @error('status') is-invalid @enderror" id="status" name="status">
-      @foreach($user->getstatusOption() as $key => $value)
-        <option value="{{$key}}" {{$user->status == $value ? 'selected' : ''}}>{{$value}}</option>
-      @endforeach
+      
+        <option value="1">Actif</option>
+        <option value="2">Inactif</option>
+      
       </select>
       @error('status')
     <div class="invalid-feedback couleur">

@@ -15,7 +15,7 @@
        </article>
        @endif
 
-        <a href="{{ route('SuperAdmin.create')}}"><button type="button" class="btn btn-success my-3">Creer un nouveau Client</button></a>
+        <a href="/SuperAdmin/create"><button type="button" class="btn btn-success my-3">Creer un nouveau Client</button></a>
         <table class="table table-hover">
         <thead>
           <tr>
@@ -30,7 +30,7 @@
           @foreach($users as $user)
           <tr class="table-success col-md-8">
             <td>{{$user->name}}</td>
-            <td>{{$user->status}}</td>
+            <td>{{$user->status ? 'actif' : 'inactif'}}</td>
             <td><a href="/SuperAdmin/{{$user->id}}"><button type="button" class="btn btn-success btn-sm "><i class="fa fa-low-vision" aria-hidden="true"></i>
             Informatins</button></a></td>
             <td><a href="/SuperAdmin/{{$user->id}}/edit"><button type="button" class="btn btn-warning btn-sm "><i class="fa fa-upload" aria-hidden="true"></i>
