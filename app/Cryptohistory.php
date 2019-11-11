@@ -9,6 +9,10 @@ class Cryptohistory extends Model
 
     public function cryptocurrency() 
 	{
-		return $this->hasMany('App\CryptoCurrency');
+		return $this->hasOne('App\Cryptocurrency');
 	}
+
+	public function cryptohistory(){
+        return $this->hasOne('App\Transaction');
+    }
 }

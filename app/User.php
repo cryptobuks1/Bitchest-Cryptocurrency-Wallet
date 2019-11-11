@@ -64,7 +64,22 @@ class User extends Authenticatable
 
 
 
-    
+    //  public function getstatusAttribute($attributes){
+
+    //     return $this->getstatusOption()[$attributes];
+    // }
+
+    // // creation d'un option 
+
+    // public function getstatusOption(){
+
+    //     return [
+    //         '0' =>'Inactif',
+    //         '1'=>'Actif',
+    //         '2' => 'en attent de validation'
+    //     ];
+    // }
+
     
     
 }

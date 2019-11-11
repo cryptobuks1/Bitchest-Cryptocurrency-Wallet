@@ -11,6 +11,10 @@ class Cryptocurrency extends Model
     ];
 
     public function cryptohistorys(){
-        return $this->belongsTo('App\Cryptohistory');
+        return $this->hasOne('App\Cryptohistory');
+    }
+
+    public function wallet(){
+        return $this->belongsTo('App\Wallet');
     }
 }
