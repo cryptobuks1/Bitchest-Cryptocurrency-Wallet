@@ -83,7 +83,9 @@
                 <div class="title">
                     Welcome 
                 </div>
-                <div class="text-center Welcome"><img src="{{asset('images/bitchest_logo.png')}}" alt="Bitchest" class="img-responsive"></div>
+
+                <div class="text-center Welcome"><img src="{{asset('images/bitchest_logo.png')}}" alt="Bitchest" class="img-responsive" width= "400";>
+                </div>
                 <p>Please login to access your personal space</p>
             </div>
         </div>

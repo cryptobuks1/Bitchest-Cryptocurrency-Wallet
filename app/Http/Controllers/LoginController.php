@@ -26,7 +26,7 @@ class LoginController extends Controller
     			return redirect()->route('SuperAdmin.index');
     		}
 
-                return redirect()->route('el');
+                return redirect()->route('index');
     	}
 
         return back();

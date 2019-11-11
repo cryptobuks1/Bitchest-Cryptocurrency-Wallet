@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -67,8 +68,8 @@ public function show($id){
 
 public function edit($id){
 
-        $user =User::find($id);
-
+        $user = User::find($id);
+        
         return view('SuperAdmin.edit',compact('user'));
     }
 
@@ -99,8 +100,5 @@ public function update(Request $request, $id){
         session()->flash('supprimer','Utilisateur supprimer avec success');
         return redirect('/SuperAdmin');
     }
-
-
-
 
 }

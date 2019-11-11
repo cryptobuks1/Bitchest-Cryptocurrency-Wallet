@@ -4,12 +4,18 @@
         <a class="navbar-brand" href="#"><img src="{{asset('images/bitchest_logo.png')}}" alt="Bitchest"  class="img-responsive" width= "150";></a>
         
         <ul>
-            <li><a id="liste" href="{{ route('personaldata') }}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
+            <li><a id="liste" href="{{ route('personaldatauser') }}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
 
-            <li><a id="liste" href="{{route ('SuperAdmin.index')}}"><i class="fa fa-users" aria-hidden="true"></i> Nos Clients</a></li>
+            <li><a id="liste" href=""><i class="fa fa-users" aria-hidden="true"></i> Portefeuille</a></li>
 
-            <li><a id="liste" href="SuperAdmin.crypto_monnaie"><i class="fa fa-money" aria-hidden="true"></i>
-             Crypto Monnaies</a></li>
+            <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
+             Achats</a></li>
+
+             <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
+             Crypto monnaies</a></li>
+
+             <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
+             Solde</a></li>
 
             <li >
               <a id="liste" class="" href="{{ route('logout') }}"
@@ -24,8 +30,6 @@
             </form>
            </li>
 
-           
-          
         </ul>
 
         <div class="social_media">
@@ -33,4 +37,5 @@
           <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
           <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
       </div>
+
     </div>

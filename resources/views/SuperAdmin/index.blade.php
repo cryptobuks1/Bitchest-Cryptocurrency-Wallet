@@ -3,19 +3,22 @@
 
 @section('content')
 
-
-
-<div class="main_content">
-        <div class="header">Liste des clients de Bitchest.</div> 
+<article class="main_content">
+<section class="header"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+ {{ Auth::user()->name }}  est en ligne 
+</section> 
         
-        <div class="info">
+        <section class="info">
         @if(session()->has('supprimer'))
        <article class="alert alert-dismissible alert-warning">
        <p class="mb-0">{!! session()->get('supprimer')  !!}</p>
        </article>
        @endif
 
-        <a href="/SuperAdmin/create"><button type="button" class="btn btn-success my-3">Creer un nouveau Client</button></a>
+        <a href="/SuperAdmin/create">
+          <button type="button" class="btn btn-success my-3">Creer un nouveau Client
+          </button>
+        </a>
         <table class="table table-hover">
         <thead>
           <tr>
@@ -30,7 +33,7 @@
           @foreach($users as $user)
           <tr class="table-success col-md-8">
             <td>{{$user->name}}</td>
-            <td>{{$user->status ? 'actif' : 'inactif'}}</td>
+            <td>{{$user->status ? 'adminstrateur' : 'client'}}</td>
             <td><a href="/SuperAdmin/{{$user->id}}"><button type="button" class="btn btn-success btn-sm "><i class="fa fa-low-vision" aria-hidden="true"></i>
             Informatins</button></a></td>
             <td><a href="/SuperAdmin/{{$user->id}}/edit"><button type="button" class="btn btn-warning btn-sm "><i class="fa fa-upload" aria-hidden="true"></i>
@@ -49,7 +52,7 @@
 
       </table> 
       {{ $users->links() }}
-      </div>
-    </div>
+      </section>
+    </article>
 
 @endsection

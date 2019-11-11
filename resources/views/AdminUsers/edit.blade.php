@@ -8,7 +8,7 @@
 
   <section class="info">
 
-    <form action ="/SuperAdmin/{{$user->id}}" method="POST">
+    <form action ="/AdminUsers/{{$user->id}}" method="POST">
       @csrf
       @method('PATCH')
 

@@ -1,12 +1,14 @@
-@extends('layouts.base')
+@extends('layouts.base_user')
 
 
 @section('content')
 
 <div class="main_content">
-        <div class="header">Bienvenue Monsieur Diagne vous vous etez connecter en tant que utilisateur simple.</div>  
-        <div class="info">
+   <section class="header"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+       {{ Auth::user()->name }}  est en ligne 
+   </section> 
+<div class="info">
         
-      </div>
-    </div>
+</div>
+</div>
 @endsection
