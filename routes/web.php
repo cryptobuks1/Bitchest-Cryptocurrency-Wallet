@@ -23,18 +23,22 @@ Route::get('SuperAdmin.crypto_monnaie','AdminCryptoCurrencesController@monnaie')
 /* ##################Partie Utilisateurateur ######################## */
 
 /* Route pour l'authentification partie utilisateur */
-Route::get('/AdminUsers','UtilisateurController@list')->name('index')->middleware('auth');
+Route::get('/AdminUsers','UtilisateurController@list')->name('index');
 
 
 /*Route pour affichage des donnees personnel utilisateur */
-Route::get('AdminUsers/personaldatauser', 'PersonalDataUserController@personaldata')->name('personaldatauser')->middleware('auth');
+Route::get('AdminUsers/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
 
 Route::get('/AdminUsers/{id}/edit','PersonalDataUserController@edit')->name('AdminUsers.edit');
 
 Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
 
-/*Route pour affichager le portefeuille client*/
 
+/*Route pour affichager le portefeuille client*/
+Route::get('wallet', 'WalletController@index')->name('wallet');
+
+/* route pour afficher le details d'un portefeuile */
+Route::get('wallet_cryptomoney/{id}', 'WalletCryptoMoneyController@index')->name('wallet_cryptomoney')->middleware('auth');
 
 
 

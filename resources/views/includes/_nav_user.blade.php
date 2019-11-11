@@ -6,7 +6,7 @@
         <ul>
             <li><a id="liste" href="{{ route('personaldatauser') }}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Infos Personnelles</a></li>
 
-            <li><a id="liste" href=""><i class="fa fa-users" aria-hidden="true"></i> Portefeuille</a></li>
+            <li><a id="liste" href="{{ route('wallet') }}"><i class="fa fa-users" aria-hidden="true"></i> Portefeuille</a></li>
 
             <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
              Achats</a></li>

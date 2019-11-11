@@ -19,6 +19,7 @@
           <button type="button" class="btn btn-success my-3">Creer un nouveau Client
           </button>
         </a>
+
         <table class="table table-hover">
         <thead>
           <tr>
@@ -46,7 +47,6 @@
 
            </td>
           </tr>
-          
           @endforeach
         </tbody>
 
