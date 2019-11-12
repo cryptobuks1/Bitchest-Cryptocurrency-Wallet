@@ -9,7 +9,7 @@ class Wallet extends Model
     protected $fillable = [
         'quantity',
         'user_id',
-        'cryptocurrence_id'
+        'crypto_id'
     ];
 
 

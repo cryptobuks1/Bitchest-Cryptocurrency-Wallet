@@ -18,10 +18,9 @@ class CyptoHistoryTableSeeder extends Seeder
     }
 
 
-    public function run(){
-
+      public function run()
+    {
         function getFirstCotation($cryptoname){
-
             return ord(substr($cryptoname,0,1)) + rand(0, 10);
         }
 
@@ -29,21 +28,20 @@ class CyptoHistoryTableSeeder extends Seeder
             return ((rand(0, 99)>40) ? 1 : -1) * ((rand(0, 99)>49) ? ord(substr($cryptoname,0,1)) : ord(substr($cryptoname,-1))) * (rand(1,10) * .01);
         }
 
-        $currencies = App\Cryptocurrency::all();
 
+        $currencies = App\CryptoCurrency::all();
         foreach ($currencies as $currencie) {
-
             $firstCotation = getFirstCotation($currencie->money_name);
+
             for ($i=0; $i < 30; $i++) {
 
-               $date = date('Y-m-d', strtotime(-$i.' day'));
+                $date = date('Y-m-d', strtotime(-$i.' day'));
                DB::Table('cryptohistories')->insert(array([
-                'cryptocurrence_id' => $currencie->id,
+                'crypto_id' => $currencie->id,
                 'date' => $date,
-                'classes' =>  getFirstCotation($currencie->money_name) + $firstCotation
+                'rate' =>  getFirstCotation($currencie->money_name) + $firstCotation
                 ]));
            }
         }
     }
-
 }

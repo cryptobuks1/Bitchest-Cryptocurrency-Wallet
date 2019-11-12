@@ -4,7 +4,7 @@ Route::view('/','welcome');
 
 
 
-/* ################## Partie Super Administrateur ######################## */
+/* ############   Partie Super Administrateur ######################## */
 
 
 /* Route pour gérer l'affichage des donnees personnelles du super admin */
@@ -34,11 +34,16 @@ Route::get('/AdminUsers/{id}/edit','PersonalDataUserController@edit')->name('Adm
 Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
 
 
+
+
 /*Route pour affichager le portefeuille client*/
 Route::get('wallet', 'WalletController@index')->name('wallet');
 
+Route::resource('buy', 'BuyController');
+
+
 /* route pour afficher le details d'un portefeuile */
-Route::get('wallet_cryptomoney/{id}', 'WalletCryptoMoneyController@index')->name('wallet_cryptomoney')->middleware('auth');
+Route::get('wallet_cryptomoney/{crypto_id}', 'WalletCryptoMoneyController@index')->name('wallet_cryptomoney')->middleware('auth');
 
 
 

@@ -8,7 +8,7 @@ class Transaction extends Model
 {
     protected $fillable = [
         'wallet_id',
-        'cryptohistory_id',
+        'crypto_history_id',
         'buy_date',
         'sell_date',
         'quantity'

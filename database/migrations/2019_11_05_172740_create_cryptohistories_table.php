@@ -14,13 +14,13 @@ class CreateCryptohistoriesTable extends Migration
     public function up()
     {
         Schema::create('cryptohistories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('cryptocurrence_id')->unsigned();
-            $table->foreign('cryptocurrence_id')
+             $table->increments('id');
+            $table->integer('crypto_id')->unsigned();
+            $table->foreign('crypto_id')
                 ->references('id')
-                ->on('cryptocurrencies');
+                ->on('crypto_currencies');
             $table->datetime('date');
-            $table->decimal('classes',7,2);
+            $table->decimal('rate',7,2);
         });
     }
 

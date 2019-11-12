@@ -14,15 +14,17 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('wallet_id');
             $table->foreign('wallet_id')
                 ->references('id')
                 ->on('wallets');
-            $table->unsignedInteger('cryptohistory_id');
-            $table->foreign('cryptohistory_id')
+
+
+            $table->unsignedInteger('crypto_history_id');
+            $table->foreign('crypto_history_id')
                 ->references('id')
-                ->on('cryptohistories');
+                ->on('crypto_histories');
             $table->dateTime('buy_date');
             $table->dateTime('sell_date');
             $table->decimal('quantity', 7, 2);

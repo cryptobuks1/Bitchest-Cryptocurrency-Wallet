@@ -19,10 +19,10 @@ public function monnaie(){
     $cryptocurrency = Cryptocurrency::all();
 
     $cryptohistory = DB::table('cryptohistories')
-        ->select(DB::raw(' cryptocurrencies.money_name, cryptocurrencies.logo, max(cryptohistories.date), ANY_VALUE(cryptohistories.classes) AS classes'))
-        ->join('cryptocurrencies','cryptohistories.cryptocurrence_id', '=', 'cryptocurrencies.id')
-        ->groupBy('cryptohistories.cryptocurrence_id')
-        ->orderBy('cryptohistories.cryptocurrence_id')
+        ->select(DB::raw(' cryptocurrencies.money_name, cryptocurrencies.logo, max(cryptohistories.date), ANY_VALUE(cryptohistories.rate) AS rate'))
+        ->join('cryptocurrencies','cryptohistories.crypto_id', '=', 'cryptocurrencies.id')
+        ->groupBy('cryptohistories.crypto_id')
+        ->orderBy('cryptohistories.crypto_id')
         ->get();
 
         return view('SuperAdmin.crypto_monnaie', compact('title','cryptocurrency','cryptohistory'));

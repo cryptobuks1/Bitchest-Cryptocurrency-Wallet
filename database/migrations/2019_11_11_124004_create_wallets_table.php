@@ -14,18 +14,19 @@ class CreateWalletsTable extends Migration
     public function up()
     {
         Schema::create('wallets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-             $table->integer('user_id')->unsigned();
+           $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             
-            $table->integer('cryptocurrence_id')->unsigned();
-            $table->foreign('cryptocurrence_id')
+            $table->integer('crypto_id')->unsigned();
+            $table->foreign('crypto_id')
                 ->references('id')
-                ->on('cryptocurrencies');
+                ->on('crypto_currencies');
+
             $table->decimal('quantity',7,2);
         });
     }

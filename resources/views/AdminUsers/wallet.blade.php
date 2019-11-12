@@ -24,14 +24,14 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($currencies_list as $currency)
+          @foreach($bought_currencies_list as $currency)
           <tr class="table-success col-md-8">
-            <td><a style="text-decoration:none;" href=""><img src="{{URL::asset('/images')}}/{{$currency['Cryptocurrency']->logo}}"/>&nbsp;{{$currency['Cryptocurrency']->money_name}}
+            <td><a style="text-decoration:none;" href="{{route('wallet_cryptomoney', ['id' => $currency['Cryptocurrency']->id])}}"><img src="{{URL::asset('/images')}}/{{$currency['Cryptocurrency']->logo}}"/>&nbsp;{{$currency['Cryptocurrency']->money_name}}
             </a></td>
             <td>{{number_format($currency['quantity'])}}</td>
             <td>{{number_format($currency['bought'])}}€</td>
             <td>
-            <a href="">
+            <a href="{{route('wallet_cryptomoney', ['id' => $currency['Cryptocurrency']->id])}}">
              <button type="button" class="btn btn-success"><i class="fa fa-eye"></i> Historique
              </button>
             </a>

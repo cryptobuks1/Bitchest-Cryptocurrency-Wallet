@@ -8,7 +8,7 @@
 
             <li><a id="liste" href="{{ route('wallet') }}"><i class="fa fa-users" aria-hidden="true"></i> Portefeuille</a></li>
 
-            <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
+            <li><a id="liste" href="{{route('buy.index')}}"><i class="fa fa-money" aria-hidden="true"></i>
              Achats</a></li>
 
              <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>

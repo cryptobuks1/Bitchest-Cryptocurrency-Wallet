@@ -5,7 +5,7 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\CryptoCurrency;
+use App\Cryptocurrency;
 use App\Wallet;
 use App\User;
 
@@ -27,41 +27,38 @@ class WalletController extends Controller
 
         /* récuperation des informations d'un clypto mannaie  */
  
-        $currencies_list = [];
-
+        // récupére les infos de la crypto via la clé (nom, logo etc)
+        $bought_currencies_list = [];
         $boughts = array();
-
         $total_wallet = 0;
-
         foreach ($wallets as $wallet) {
-        	
-            $CryptoCurrency = Cryptocurrency::where('id', $wallet->cryptocurrence_id)->first();
+            $CryptoCurrency = CryptoCurrency::where('id', $wallet->crypto_id)->first();
             $boughts = DB::table('cryptohistories')
-                    ->select(DB::raw(' max(cryptohistories.date) AS date, ANY_VALUE(cryptohistories.classes) AS classes, ANY_VALUE(cryptohistories.cryptocurrence_id) AS cryptocurrence_id'))
-                    ->where('cryptocurrence_id', $wallet->cryptocurrence_id)
-                    ->groupBy('cryptohistories.cryptocurrence_id')
-                    ->orderBy('cryptohistories.cryptocurrence_id')
+                    ->select(DB::raw(' max(cryptohistories.date) AS date, ANY_VALUE(cryptohistories.rate) AS rate, ANY_VALUE(cryptohistories.crypto_id) AS crypto_id'))
+                    ->where('crypto_id', $wallet->crypto_id)
+                    ->groupBy('cryptohistories.crypto_id')
+                    ->orderBy('cryptohistories.crypto_id')
                     ->get();
 
 
-            if (!isset($currencies_list[$wallet->cryptocurrence_id])) {
-                $currencies_list[$wallet->cryptocurrence_id]['Cryptocurrency'] = $CryptoCurrency;
-                $currencies_list[$wallet->cryptocurrence_id]['quantity'] = $wallet->quantity;
+            if (!isset($bought_currencies_list[$wallet->crypto_id])) {
+                $bought_currencies_list[$wallet->crypto_id]['Cryptocurrency'] = $CryptoCurrency;
+                $bought_currencies_list[$wallet->crypto_id]['quantity'] = $wallet->quantity;
                 foreach ($boughts as $bought) {
 
-                    $classes = $wallet->quantity*$bought->classes;
-                    $currencies_list[$wallet->cryptocurrence_id]['bought'] = $classes;
+                    $rate = $wallet->quantity*$bought->rate;
+                    $bought_currencies_list[$wallet->crypto_id]['bought'] = $rate;
                 }
             }
             else {
-                $currencies_list[$wallet->cryptocurrence_id]['quantity'] += $wallet->quantity;
+                $bought_currencies_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
             }
-            $total_wallet += $wallet->quantity*$bought->classes;
+            $total_wallet += $wallet->quantity*$bought->rate;
         };
 
 
-        return view('AdminUsers/wallet', compact( 'crypto_currency', 'currencies_list', 'users','total_wallet'));
+        return view('AdminUsers/wallet', compact( 'title', 'crypto_currency', 'bought_currencies_list', 'users','total_wallet'));
 }
 
 }

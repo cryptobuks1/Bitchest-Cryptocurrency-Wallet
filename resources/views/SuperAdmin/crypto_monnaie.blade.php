@@ -32,7 +32,7 @@
                   {{ $crypto_history->money_name }}
                 </td>
                 <td>
-                  {{$crypto_history->classes}}
+                  {{$crypto_history->rate}}
                 </td>
               </tr>
 
