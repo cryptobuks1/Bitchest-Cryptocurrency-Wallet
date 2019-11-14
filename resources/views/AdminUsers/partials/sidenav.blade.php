@@ -11,7 +11,7 @@
             <li><a id="liste" href="{{route('buy.index')}}"><i class="fa fa-money" aria-hidden="true"></i>
              Achats</a></li>
 
-             <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
+             <li><a id="liste" href="{{ route('cours_cryptos') }}"><i class="fa fa-money" aria-hidden="true"></i>
              Crypto monnaies</a></li>
 
             <li >

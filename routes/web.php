@@ -26,7 +26,9 @@ Route::get('SuperAdmin.crypto_monnaie','AdminCryptoCurrencesController@monnaie')
 Route::get('/AdminUsers','UtilisateurController@list')->name('index');
 
 /* Route pour afficher la liste des crypto monnaie  */
-Route::get('cours_cryptos', 'CoursCryptosController@index')->name('cours_cryptos')->middleware('auth');
+Route::get('cours_cryptos', 'CoursCryptoController@index')->name('cours_cryptos');
+
+Route::get('graph/{crypto_id}', 'GraphController@index')->name('graph');
 
 /*Route pour affichager des donnees personnel utilisateur */
 Route::get('AdminUsers/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
