@@ -10,14 +10,13 @@ class TransactionTableSeeder extends Seeder
      *
      * @return void
      */
-    private function randDate()
-    {
+    private function randDate(){
         return Carbon::createFromDate(null, rand(1, 12), rand(1, 28));
     }
 
-     public function run()
-    {
-        $CryptoHistory = DB::table('cryptohistories')
+     public function run() {
+        
+         $CryptoHistory = DB::table('cryptohistories')
             ->select(DB::raw(' wallets.id AS wallet_id, 
                                 wallets.quantity AS quantity,
                                 ANY_VALUE(cryptohistories.id) AS crypto_history_id, 
@@ -32,6 +31,9 @@ class TransactionTableSeeder extends Seeder
             ->groupBy('cryptohistories.crypto_id')
             ->orderBy('cryptohistories.crypto_id')
             ->get();
+
+
+
 
         $date = $this->randDate();
         foreach ($CryptoHistory as $Crypto) {

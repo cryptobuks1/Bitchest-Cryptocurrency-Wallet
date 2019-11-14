@@ -24,7 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedInteger('crypto_history_id');
             $table->foreign('crypto_history_id')
                 ->references('id')
-                ->on('crypto_histories');
+                ->on('cryptohistories');
             $table->dateTime('buy_date');
             $table->dateTime('sell_date');
             $table->decimal('quantity', 7, 2);

@@ -5,7 +5,7 @@
 
 <article class="main_content">
 	 
-   <section class="header">{{$title}}.</section>
+   <section class="header">Mon solde : <strong>{{($total_wallet)}} €</section>
   
    	<section class="info col-md-4">
 

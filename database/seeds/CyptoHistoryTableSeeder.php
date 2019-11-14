@@ -29,7 +29,7 @@ class CyptoHistoryTableSeeder extends Seeder
         }
 
 
-        $currencies = App\CryptoCurrency::all();
+        $currencies = App\Cryptocurrency::all();
         foreach ($currencies as $currencie) {
             $firstCotation = getFirstCotation($currencie->money_name);
 

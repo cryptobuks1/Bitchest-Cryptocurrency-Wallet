@@ -18,7 +18,7 @@ class CreateCryptohistoriesTable extends Migration
             $table->integer('crypto_id')->unsigned();
             $table->foreign('crypto_id')
                 ->references('id')
-                ->on('crypto_currencies');
+                ->on('cryptocurrencies');
             $table->datetime('date');
             $table->decimal('rate',7,2);
         });

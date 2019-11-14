@@ -21,11 +21,10 @@ class CreateWalletsTable extends Migration
                 ->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            
             $table->integer('crypto_id')->unsigned();
             $table->foreign('crypto_id')
                 ->references('id')
-                ->on('crypto_currencies');
+                ->on('cryptocurrencies');
 
             $table->decimal('quantity',7,2);
         });
@@ -38,6 +37,9 @@ class CreateWalletsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wallets');
+        Schema::table('wallets', function(Blueprint $table) {
+        $table->dropForeign('wallet_user_id_foreign');
+        });
+         Schema::dropIfExists('wallets');
     }
 }

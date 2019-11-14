@@ -5,7 +5,7 @@
 
 <article class="main_content">
 	 
-   <section class="header">Mon Portefeuille .</section>
+   <section class="header">Mon solde : <strong>{{($total_wallet)}} €</section>
   
    	<section class="info">
         @if(Session::has('flash_message'))
@@ -25,6 +25,8 @@
         </thead>
         <tbody>
           @foreach($bought_currencies_list as $currency)
+
+          
           <tr class="table-success col-md-8">
             <td><a style="text-decoration:none;" href="{{route('wallet_cryptomoney', ['id' => $currency['Cryptocurrency']->id])}}"><img src="{{URL::asset('/images')}}/{{$currency['Cryptocurrency']->logo}}"/>&nbsp;{{$currency['Cryptocurrency']->money_name}}
             </a></td>
@@ -37,6 +39,8 @@
             </a>
             </td>
           </tr>
+      
+
           @endforeach
         </tbody>
 

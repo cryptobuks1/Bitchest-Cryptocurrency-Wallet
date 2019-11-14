@@ -1,6 +1,6 @@
 @include('partials.header')
 
-@include('includes._nav_user')
+@include('AdminUsers.partials.sidenav')
 
 	<main class="container-fluid" style="margin-top: 30px;">
 

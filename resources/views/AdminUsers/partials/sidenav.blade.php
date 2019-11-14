@@ -14,9 +14,6 @@
              <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
              Crypto monnaies</a></li>
 
-             <li><a id="liste" href=""><i class="fa fa-money" aria-hidden="true"></i>
-             Solde</a></li>
-
             <li >
               <a id="liste" class="" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -32,6 +29,7 @@
 
         </ul>
 
+      
         <div class="social_media">
           <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
           <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>

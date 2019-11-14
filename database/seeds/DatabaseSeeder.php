@@ -11,11 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(CyptoCurrencyTableSeeder::class);
-        $this->call(CyptoHistoryTableSeeder::class);
-        $this->call(TransactionTableSeeder::class);
-        $this->call(WalletTableSeeder::class);
+      $this->call(UsersTableSeeder::class);
+      $this->call(CyptoCurrencyTableSeeder::class);
+      $this->call(WalletTableSeeder::class);
+      $this->call(CyptoHistoryTableSeeder::class);
+      $this->call(TransactionTableSeeder::class);
         
     }
 }

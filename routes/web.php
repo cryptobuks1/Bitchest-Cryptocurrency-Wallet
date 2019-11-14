@@ -4,10 +4,10 @@ Route::view('/','welcome');
 
 
 
-/* ############   Partie Super Administrateur ######################## */
+/* ************ Partie Super Administrateur ****************** */
 
 
-/* Route pour gérer l'affichage des donnees personnelles du super admin */
+/* Route pour gérer l'affichage des donnees personnelles de Admin */
 Route::get('SuperAdmin/personaldata', 'PersonalDataController@personaldata')->name('personaldata')->middleware('auth');
 
 
@@ -25,14 +25,16 @@ Route::get('SuperAdmin.crypto_monnaie','AdminCryptoCurrencesController@monnaie')
 /* Route pour l'authentification partie utilisateur */
 Route::get('/AdminUsers','UtilisateurController@list')->name('index');
 
+/* Route pour afficher la liste des crypto monnaie  */
+Route::get('cours_cryptos', 'CoursCryptosController@index')->name('cours_cryptos')->middleware('auth');
 
-/*Route pour affichage des donnees personnel utilisateur */
+/*Route pour affichager des donnees personnel utilisateur */
 Route::get('AdminUsers/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
 
 Route::get('/AdminUsers/{id}/edit','PersonalDataUserController@edit')->name('AdminUsers.edit');
 
-Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
 
+Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
 
 
 

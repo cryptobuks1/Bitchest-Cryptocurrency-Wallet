@@ -29,7 +29,7 @@
                                         <td>{{$rate}}</td>
                                         
                                         <td>{{$capital_gain}} €</td>
-                                        <td><a href="{{route('sell')}}" class="btn btn-primary btn-xs">Vendre</a></td>
+                                        <td><a href="" class="btn btn-primary btn-xs">Vendre</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

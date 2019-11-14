@@ -54,8 +54,10 @@ class WalletController extends Controller
                 $bought_currencies_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
             }
-            $total_wallet += $wallet->quantity*$bought->rate;
-        };
+
+            $total_wallet += ($wallet->quantity*$bought->rate);
+
+        }
 
 
         return view('AdminUsers/wallet', compact( 'title', 'crypto_currency', 'bought_currencies_list', 'users','total_wallet'));
