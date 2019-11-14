@@ -22,14 +22,12 @@
       @foreach($crypto_history as $crypto)
       <tr>
       <td>
-      {{--lien vers page du graphique de la crypto monnaie--}}
-      <a href="">
       <img src="{{URL::asset('/images')}}/{{ $crypto->logo }}"/> {{$crypto->money_name}}
       </a>
       </td>
       <td>{{$crypto->rate}}</td>
       <td>
-      <a href="" class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Évolution</a>
+      <a href="{{route('graph', ['crypto_id' => $crypto->id])}}" class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Évolution</a>
       <a href="{{route('buy.index')}}" class="btn btn-primary btn-xs">Acheter</a>
       </td>
       </tr>
