@@ -10,6 +10,7 @@ use App\Transaction;
 use App\Wallet;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class WalletCryptoMoneyController extends Controller
 {
@@ -106,4 +107,17 @@ class WalletCryptoMoneyController extends Controller
 
         return view('AdminUsers/wallet_cryptomoney', compact('title', 'transactions', 'total', 'users', 'rate', 'capital_gain', 'crypto','total_wallet'));
     }
+
+    // fonction pour gérer la vente de crypto monnaie 
+
+    public function destroy($id){
+
+        $destroy = Wallet::find($id);
+
+        $destroy->delete();
+
+        Session::flash('flash_message','Votre crypto monnaie à éte vendu avec succées');
+        return redirect('/wallet');
+    }
+
 }

@@ -37,7 +37,7 @@ class CyptoHistoryTableSeeder extends Seeder
 
                 $date = date('Y-m-d', strtotime(-$i.' day'));
                DB::Table('cryptohistories')->insert(array([
-                'crypto_id' => $currencie->id,
+                'crypto_id' => $i+1,
                 'date' => $date,
                 'rate' =>  getFirstCotation($currencie->money_name) + $firstCotation
                 ]));

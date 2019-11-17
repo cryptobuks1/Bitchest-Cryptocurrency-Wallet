@@ -32,31 +32,22 @@ Route::get('graph/{crypto_id}', 'GraphController@index')->name('graph');
 
 /*Route pour affichager des donnees personnel utilisateur */
 Route::get('AdminUsers/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
-
+/*Route pour aediter les donnees personnelles de  l'utilisateur */
 Route::get('/AdminUsers/{id}/edit','PersonalDataUserController@edit')->name('AdminUsers.edit');
 
-
+/*Route pour afficher les donnees personnelles de  l'utilisateur */
 Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
-
-
-
 /*Route pour affichager le portefeuille client*/
 Route::get('wallet', 'WalletController@index')->name('wallet');
-
+/*Route pour acheter des crypto monnaies */
 Route::resource('buy', 'BuyController');
-
+/*Route pour vendre des crypto monnaies */
+Route::get('sell', 'SellController@index')->name('sell');
 
 /* route pour afficher le details d'un portefeuile */
-Route::get('wallet_cryptomoney/{crypto_id}', 'WalletCryptoMoneyController@index')->name('wallet_cryptomoney')->middleware('auth');
+Route::get('wallet_cryptomoney/{crypto_id}', 'WalletCryptoMoneyController@index')->name('wallet_cryptomoney');
 
-
-
-
-
-
-
-
-
+Route::get('destroy/{crypto_id}','WalletCryptoMoneyController@destroy')->name('destroy');
 
 
 /* ################## Partie Authentification ######################## */

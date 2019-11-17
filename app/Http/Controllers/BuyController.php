@@ -141,7 +141,7 @@ class BuyController extends Controller
 
         $quantity = $input['quantity'];
       
-        $wallet_id =  $wallet;
+        // $wallet_id =  $wallet;
         
         $cryptohistory_id = $crypto_his_id;
         $buy_date = $buy_date_trans;
