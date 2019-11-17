@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Session;
 
 class WalletCryptoMoneyController extends Controller
 {
+    
+
     public function __construct()
     {
+        
         $this->middleware('auth');
     }
 
@@ -77,6 +80,8 @@ class WalletCryptoMoneyController extends Controller
 
         foreach ($boughts as $bought) {
 
+
+
             $rate = $bought->rate;
 
             $boughts_rate = DB::table('transactions')
@@ -105,7 +110,7 @@ class WalletCryptoMoneyController extends Controller
         }
 
 
-        return view('AdminUsers/wallet_cryptomoney', compact('title', 'transactions', 'total', 'users', 'rate', 'capital_gain', 'crypto','total_wallet'));
+        return view('Clients/wallet_cryptomoney', compact('title', 'transactions', 'total', 'users', 'rate', 'capital_gain', 'crypto','total_wallet'));
     }
 
     // fonction pour gérer la vente de crypto monnaie 
@@ -114,10 +119,20 @@ class WalletCryptoMoneyController extends Controller
 
         $destroy = Wallet::find($id);
 
+        $shoproduct = Transaction::find($id)->wallet;
+        $rate = Cryptohistory::find($id)->rate;
+
+        $total = 0 ;
+        $quantity = $shoproduct->quantity;
+        $rate  =  $rate;
+        $total += $quantity * $rate;
+
+        Session::put('total',$total);
+      
         $destroy->delete();
 
         Session::flash('flash_message','Votre crypto monnaie à éte vendu avec succées');
-        return redirect('/wallet');
+        return redirect('/wallet')->with('success','total');
     }
 
 }

@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     		if ($user->is_admin()) {
 
-    			return redirect()->route('SuperAdmin.index');
+    			return redirect()->route('Admin.index');
     		}
 
                 return redirect()->route('wallet');

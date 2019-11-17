@@ -19,7 +19,7 @@
       <hr class="my-4">
       <p>Status : {{$user->status ? 'administrateur' : 'client'}}</p>
       <p class="lead">
-       <a href="{{ route('SuperAdmin.index')}}">
+       <a href="{{ route('Admin.index')}}">
         <button type="button" class="btn btn-success">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
           Back

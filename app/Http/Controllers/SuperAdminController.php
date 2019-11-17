@@ -6,12 +6,15 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class SuperAdminController extends Controller
 {
 
+ public function __construct(){
+        $this->middleware('auth');
+    }
 
 /* Affichages de la liste des clients de Bitchest */
 
@@ -20,14 +23,14 @@ public function index(){
     $users = User::paginate(3);
    
 
-    return view('SuperAdmin.index', compact('users'));
+    return view('Admin.index', compact('users'));
 }
 
 /* fonction pour creer un formaulaire d'édition */
 
 public function create(){
 	$user = new User();
-	return view('SuperAdmin.create',compact('user'));
+	return view('Admin.create',compact('user'));
 }
 
 /* fonction pour inserer des informations dans la base de données */
@@ -61,7 +64,7 @@ public function show($id){
 
     $user =User::find($id);
 
-    return view('SuperAdmin.show',compact('user'));
+    return view('Admin.show',compact('user'));
 }
 
 /* fonction pour editer un client */
@@ -70,7 +73,7 @@ public function edit($id){
 
         $user = User::find($id);
         
-        return view('SuperAdmin.edit',compact('user'));
+        return view('Admin.edit',compact('user'));
     }
 
 /* fonction pour modifier un utilisateur */
@@ -88,7 +91,7 @@ public function update(Request $request, $id){
 
         $user->update($data);
         session()->flash('modifier','Utilisateur modifier avec success');
-        return redirect('SuperAdmin/' .$user->id);
+        return redirect('Admin/' .$user->id);
      
     }
 
@@ -98,7 +101,7 @@ public function update(Request $request, $id){
         $user =User::find($id);
         $user->delete();
         session()->flash('supprimer','Utilisateur supprimer avec success');
-        return redirect('/SuperAdmin');
+        return redirect('/Admin');
     }
 
 }

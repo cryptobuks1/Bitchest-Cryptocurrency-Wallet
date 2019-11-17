@@ -15,7 +15,7 @@
        </article>
        @endif
 
-        <a href="/SuperAdmin/create">
+        <a href="/Admin/create">
           <button type="button" class="btn btn-success my-3">Creer un nouveau Client
           </button>
         </a>
@@ -35,11 +35,11 @@
           <tr class="table-success col-md-8">
             <td>{{$user->name}}</td>
             <td>{{$user->status ? 'adminstrateur' : 'client'}}</td>
-            <td><a href="/SuperAdmin/{{$user->id}}"><button type="button" class="btn btn-success btn-sm "><i class="fa fa-low-vision" aria-hidden="true"></i>
+            <td><a href="/Admin/{{$user->id}}"><button type="button" class="btn btn-success btn-sm "><i class="fa fa-low-vision" aria-hidden="true"></i>
             Informatins</button></a></td>
-            <td><a href="/SuperAdmin/{{$user->id}}/edit"><button type="button" class="btn btn-warning btn-sm "><i class="fa fa-upload" aria-hidden="true"></i>
+            <td><a href="/Admin/{{$user->id}}/edit"><button type="button" class="btn btn-warning btn-sm "><i class="fa fa-upload" aria-hidden="true"></i>
             Modifier</button></a></td>
-            <td><form class="form_action" action="/SuperAdmin/{{$user->id}}" method="POST">
+            <td><form class="form_action" action="/Admin/{{$user->id}}" method="POST">
               @csrf
               @method('DELETE')
              <button type="submit" onclick="return confirm('Etes vous sure de vouloir supprimer ce client ');" class="btn btn-danger btn-sm my-3"><i class="fa fa-trash-o" aria-hidden="true"></i><a  href=""></a> Supprimer</button>

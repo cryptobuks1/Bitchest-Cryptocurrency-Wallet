@@ -23,17 +23,12 @@ class TransactionTableSeeder extends Seeder
                                 cryptocurrencies.money_name, 
                                 cryptocurrencies.logo,
                                 max(cryptohistories.date) AS date, 
-                                ANY_VALUE(cryptohistories.rate) AS rate'))
+                             ANY_VALUE(cryptohistories.rate) AS rate'))
             ->join('cryptocurrencies', 'cryptohistories.crypto_id', '=', 'cryptocurrencies.id')
-
             ->join('wallets', 'cryptocurrencies.id', '=', 'wallets.id')
-            
             ->groupBy('cryptohistories.crypto_id')
             ->orderBy('cryptohistories.crypto_id')
             ->get();
-
-
-
 
         $date = $this->randDate();
         foreach ($CryptoHistory as $Crypto) {

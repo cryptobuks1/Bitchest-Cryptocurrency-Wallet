@@ -66,7 +66,7 @@ class BuyController extends Controller
 
         
 
-        return view('AdminUsers/buy', compact('title','cryptocurrency','users','total_wallet'));
+        return view('Clients/buy', compact('title','cryptocurrency','users','total_wallet'));
     }
 
 

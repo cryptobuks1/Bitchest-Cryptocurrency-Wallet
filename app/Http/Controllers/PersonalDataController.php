@@ -12,6 +12,6 @@ class PersonalDataController extends Controller
     {
 
         $users = User::where('id', Auth::id())->get();
-        return view('SuperAdmin/personaldatauser', compact('users')); 
+        return view('Admin/personaldatauser', compact('users')); 
     }
 }

@@ -80,6 +80,6 @@ class GraphController extends Controller
                 $total_wallet += $wallet->quantity*$bought->rate;
             };
 
-        return view('AdminUsers/graph',compact('chart', 'rate', 'title','users','crypto','total_wallet'));
+        return view('Clients/graph',compact('chart', 'rate', 'title','users','crypto','total_wallet'));
     }
 }

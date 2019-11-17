@@ -8,22 +8,20 @@ Route::view('/','welcome');
 
 
 /* Route pour gérer l'affichage des donnees personnelles de Admin */
-Route::get('SuperAdmin/personaldata', 'PersonalDataController@personaldata')->name('personaldata')->middleware('auth');
-
+Route::get('Admin/personaldata', 'PersonalDataController@personaldata')->name('personaldata');
 
 /* Route pour le Crud page super Administrateur */
-Route::resource('SuperAdmin', 'SuperAdminController')->middleware('auth');
-
+Route::resource('Admin', 'SuperAdminController');
 
 /* Route pour gérer l'affichage des cryptomannaie et leurs cours */
-Route::get('SuperAdmin.crypto_monnaie','AdminCryptoCurrencesController@monnaie');
+Route::get('Admin.crypto_monnaie','AdminCryptoCurrencesController@monnaie');
 
 
 
 /* ##################Partie Utilisateurateur ######################## */
 
 /* Route pour l'authentification partie utilisateur */
-Route::get('/AdminUsers','UtilisateurController@list')->name('index');
+Route::get('/Clients','UtilisateurController@list')->name('index');
 
 /* Route pour afficher la liste des crypto monnaie  */
 Route::get('cours_cryptos', 'CoursCryptoController@index')->name('cours_cryptos');
@@ -31,12 +29,12 @@ Route::get('cours_cryptos', 'CoursCryptoController@index')->name('cours_cryptos'
 Route::get('graph/{crypto_id}', 'GraphController@index')->name('graph');
 
 /*Route pour affichager des donnees personnel utilisateur */
-Route::get('AdminUsers/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
+Route::get('Clients/personaldatauser','PersonalDataUserController@personaldata')->name('personaldatauser');
 /*Route pour aediter les donnees personnelles de  l'utilisateur */
-Route::get('/AdminUsers/{id}/edit','PersonalDataUserController@edit')->name('AdminUsers.edit');
+Route::get('/Clients/{id}/edit','PersonalDataUserController@edit')->name('AdminUsers.edit');
 
 /*Route pour afficher les donnees personnelles de  l'utilisateur */
-Route::PATCH('/AdminUsers/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
+Route::PATCH('/Clients/{id}','PersonalDataUserController@update')->name('AdminUsers.update');
 /*Route pour affichager le portefeuille client*/
 Route::get('wallet', 'WalletController@index')->name('wallet');
 /*Route pour acheter des crypto monnaies */

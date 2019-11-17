@@ -15,7 +15,7 @@
     </article>
     @endif
 
-    <form action ="/SuperAdmin" method="POST">
+    <form action ="/Admin" method="POST">
       @csrf
       <fieldset>
         <legend>Creation d'un Clients</legend>

@@ -60,7 +60,7 @@ class WalletController extends Controller
         }
 
 
-        return view('AdminUsers/wallet', compact( 'title', 'crypto_currency', 'bought_currencies_list', 'users','total_wallet'));
+        return view('Clients/wallet', compact( 'title', 'crypto_currency', 'bought_currencies_list', 'users','total_wallet'));
 }
 
 }

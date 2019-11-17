@@ -13,6 +13,6 @@ class UtilisateurController extends Controller
 
 
     public function list(){
-    	return view('AdminUsers.index');
+    	return view('Clients.index');
     }
 }

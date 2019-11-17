@@ -1,16 +1,16 @@
-@extends('layouts.base_user')
+@extends('layouts.base')
 
 
 @section('content')
 
-<section class="main_content">
-        <section class="header">Bienvenue Monsieur Diagne vous vous etez connecter en tant que utilisateur simple.</section>  
-        
-        <section class="info">
+<article class="main_content">
+    <section class="header">Informtion Personnel de l'administrateur .</section> 
+
+<section class="info">
 @foreach($users as $user)
 
       
-<form action ="/AdminUsers/{{$user->id}}" method="POST">
+<form action ="/Admin/{{$user->id}}" method="POST">
 @csrf
 @method('PATCH')
 
@@ -60,6 +60,6 @@
 
       @endforeach
 </section>
-    </section>
+</article>
 
 @endsection

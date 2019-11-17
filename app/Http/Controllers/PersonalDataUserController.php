@@ -18,7 +18,7 @@ class PersonalDataUserController extends Controller
     {
 
         $users = User::where('id', Auth::id())->get();
-        return view('AdminUsers/personaldatauser', compact('users')); 
+        return view('Clients/personaldatauser', compact('users')); 
     }
 
 /* Infos utilisateurs de Bitchest */
@@ -43,11 +43,10 @@ public function update(Request $request, $id){
 
             'name'=>'required',
             'email'=>'required|email|',
-            'status'=>'required|integer',
         ]);
 
         $user->update($data);
-        return redirect('AdminUsers');
+        return redirect('/wallet');
      
     }
 

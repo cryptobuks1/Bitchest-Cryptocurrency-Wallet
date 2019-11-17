@@ -6,6 +6,8 @@
 <article class="main_content">
 	 
    <section class="header">Mon solde : <strong>{{($total_wallet)}} €</section>
+
+
   
    	<section class="info">
         @if(Session::has('flash_message'))
@@ -45,7 +47,7 @@
         </tbody>
 
       </table> 
-      
+      <section class="header">Valeur: <strong>{{ Session::get('total')}} €</section>
       </section>
 
 </article>

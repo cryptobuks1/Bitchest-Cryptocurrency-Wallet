@@ -1,16 +1,16 @@
-@extends('layouts.base')
+@extends('layouts.base_user')
 
 
 @section('content')
 
-<article class="main_content">
-    <section class="header">Informtion Personnel de l'administrateur .</section> 
-
-<section class="info">
+<section class="main_content">
+        <section class="header">Bienvenue Monsieur Diagne vous vous etez connecter en tant que utilisateur simple.</section>  
+        
+        <section class="info">
 @foreach($users as $user)
 
       
-<form action ="/SuperAdmin/{{$user->id}}" method="POST">
+<form action ="/Clients/{{$user->id}}" method="POST">
 @csrf
 @method('PATCH')
 
@@ -37,20 +37,6 @@
     @enderror
     
     </section>
-    <section class="form-group">
-      <label for="status">status</label>
-      <select class="form-control  @error('status') is-invalid @enderror" id="status" name="status">
-      <option value="1"  @if($user->status=="administrateur") selected @endif>administrateur</option>
-      <option value="0"  @if($user->status=="client") selected @endif>client</option>
-      </select>
-      @error('status')
-    <section class="invalid-feedback couleur">
-    {{$errors->first('status')}}
-    </section>
-    @enderror
-
-    </section>
-    
     <button type="submit" class="btn btn-primary">Save</button>
   </fieldset>
 </form>
@@ -60,6 +46,6 @@
 
       @endforeach
 </section>
-</article>
+    </section>
 
 @endsection

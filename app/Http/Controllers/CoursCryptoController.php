@@ -56,6 +56,6 @@ class CoursCryptoController extends Controller
                 $total_wallet += $wallet->quantity*$bought->rate;
             };
 
-        return view('AdminUsers/cours_crypto', compact('crypto_currencies', 'wallets','users','crypto_history','total_wallet'));
+        return view('Clients/cours_crypto', compact('crypto_currencies', 'wallets','users','crypto_history','total_wallet'));
     }
 }

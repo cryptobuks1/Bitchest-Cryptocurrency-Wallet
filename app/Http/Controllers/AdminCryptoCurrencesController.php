@@ -25,7 +25,7 @@ public function monnaie(){
         ->orderBy('cryptohistories.crypto_id')
         ->get();
 
-        return view('SuperAdmin.crypto_monnaie', compact('title','cryptocurrency','cryptohistory'));
+        return view('Admin.crypto_monnaie', compact('title','cryptocurrency','cryptohistory'));
     
 }
 
