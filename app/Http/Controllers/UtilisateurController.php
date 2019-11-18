@@ -11,7 +11,6 @@ class UtilisateurController extends Controller
         $this->middleware('auth');
     }
 
-
     public function list(){
     	return view('Clients.index');
     }

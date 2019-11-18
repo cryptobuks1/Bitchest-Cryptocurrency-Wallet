@@ -9,6 +9,11 @@ class CyptoCurrencyTableSeeder extends Seeder
      *
      * @return void
      */
+    /*
+|-------------------------------------------------------------------------
+| Création de mes fauses données pour remplir ma table cryptocurrency 
+|-------------------------------------------------------------------------
+*/
     public function run()
     {
         DB::Table('cryptocurrencies')->insert(array([

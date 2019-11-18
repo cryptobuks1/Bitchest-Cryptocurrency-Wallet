@@ -79,9 +79,6 @@ class WalletCryptoMoneyController extends Controller
         // $rate = Cours le plus récent
 
         foreach ($boughts as $bought) {
-
-
-
             $rate = $bought->rate;
 
             $boughts_rate = DB::table('transactions')

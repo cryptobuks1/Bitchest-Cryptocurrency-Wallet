@@ -6,13 +6,13 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 
 
 class SuperAdminController extends Controller
 {
 
  public function __construct(){
+
         $this->middleware('auth');
     }
 

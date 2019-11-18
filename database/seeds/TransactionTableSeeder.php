@@ -13,7 +13,11 @@ class TransactionTableSeeder extends Seeder
     private function randDate(){
         return Carbon::createFromDate(null, rand(1, 12), rand(1, 28));
     }
-
+/*
+|-------------------------------------------------------------------------
+ Création de mes fauses donnees  pour remplir ma table transazction via les relatio,s entres les tables cryptohistories wallet et table cryptocurrencies 
+|-------------------------------------------------------------------------
+*/
      public function run() {
         
          $CryptoHistory = DB::table('cryptohistories')

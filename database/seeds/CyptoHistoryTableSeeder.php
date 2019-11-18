@@ -17,7 +17,11 @@ class CyptoHistoryTableSeeder extends Seeder
         return Carbon::createFromDate(null, rand(1, 12), rand(1, 28));
     }
 
-
+/*
+|-------------------------------------------------------------------------
+| Création de mes fauses donnees  pour remplir ma table cryptohistory via le php_generator et les system de cotation 
+|-------------------------------------------------------------------------
+*/
       public function run()
     {
         function getFirstCotation($cryptoname){

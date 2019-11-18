@@ -114,7 +114,7 @@ class BuyController extends Controller
 
         foreach ($money_name_id as $money_name_ids) {
             $wallet = $money_name_ids->wallet_id;
-            //dd($wallet);
+            
         }
 
         $cryptohistory = DB::table('cryptohistories')
@@ -140,8 +140,6 @@ class BuyController extends Controller
         $sell_date_tras = new Carbon();
 
         $quantity = $input['quantity'];
-      
-        // $wallet_id =  $wallet;
         
         $cryptohistory_id = $crypto_his_id;
         $buy_date = $buy_date_trans;

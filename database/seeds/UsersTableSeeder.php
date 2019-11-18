@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
     {
 
 /*
-|--------------------------------------------------------------------------
-| Création de mes fauses utilisateurs via les seeder 
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------
+| Création de mes fauses données  pour remplir ma table utilisateur 
+|-------------------------------------------------------------------------
 */
         $users = factory(App\User::class, 6)->create();
        

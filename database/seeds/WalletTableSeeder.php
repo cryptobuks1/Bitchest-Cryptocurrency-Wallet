@@ -9,7 +9,11 @@ class WalletTableSeeder extends Seeder
      *
      * @return void
      */
-    
+/*
+|-------------------------------------------------------------------------
+| Création de mes fauses données  pour remplir ma table portefeuille 
+|-------------------------------------------------------------------------
+*/
       public function run()
     {
 

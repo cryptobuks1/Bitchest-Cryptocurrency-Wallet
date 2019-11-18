@@ -27,7 +27,6 @@ class WalletController extends Controller
 
         /* récuperation des informations d'un clypto mannaie  */
  
-        // récupére les infos de la crypto via la clé (nom, logo etc)
         $bought_currencies_list = [];
         $boughts = array();
         $total_wallet = 0;
